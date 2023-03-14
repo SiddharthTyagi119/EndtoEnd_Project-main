@@ -1,0 +1,15 @@
+Steps-
+Dump the data into database
+download/create a folder structure
+create setup , logger and exception file
+In utils, create a function to read the data  and define the client url in .env file. 
+work on init file and config file.
+
+create entity folder-
+artifact entitiy-defing the paths of artifacts
+config entity-creating artifacts
+
+
+
+
+
