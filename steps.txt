@@ -1,15 +1,28 @@
-Steps-
+Phase 1
+Basic functionality to start project
 Dump the data into database
-download/create a folder structure
-create setup , logger and exception file
-In utils, create a function to read the data  and define the client url in .env file. 
-work on init file and config file.
+Create a folder structure
+Create setup , logger and exception file
+[data_dump.py>>template.py>>setup.py,logger.py>>exception.py]
 
-create entity folder-
-artifact entitiy-defing the paths of artifacts
-config entity-creating artifacts
+Phase 2 
+Setting the mongo db environment to load the data
+In utils, create a function to read the data as a dataframe and define the client url in .env file. 
+In init file paas th elib to load the env and in config we are setting up the environment.
+Create .env file,insurance  __init__ ,config file and main file
+[utils.py>>.env>>__int__.py>>config.py>>main.py]
+
+Phase 3
+Data ingestion completed and artifact folder will be created
+Create artifact_entity ,config_entity and data_ingestion file
+[config_entity>>artifact_entity>>data_ingestion.py>>main.py]
+
+Phase 4
+Data validation completed
+Create data_validation file
+[config_entity>>artifact_entity>>utils.py>>data validation.py>>main.py]
 
 
-
-
-
+Phase 5
+Data Transformation
+Create Data Transformation file

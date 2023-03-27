@@ -26,14 +26,18 @@ if __name__=="__main__":
      try:
           #start_training_pipeline()
           #test_logger_and_expection()
+          
        #calling the function to read data
        # get_collection_as_dataframe(database_name ="INSURANCE", collection_name = 'INSURANCE_PROJECT')
+
+       #this is taking  our data after getting from db and we calling this from config_entity.
+       #in below 3 lines we are calling function to create  the data artifact and then initiate data_ingestion. 
        training_pipeline_config = config_entity.TrainingPipelineConfig()
-       
-      #data ingestion
        data_ingestion_config  = config_entity.DataIngestionConfig(training_pipeline_config=training_pipeline_config)
        print(data_ingestion_config.to_dict())
+       #calling data ingestion class
        data_ingestion = DataIngestion(data_ingestion_config=data_ingestion_config)
+       #calling data ingestion artifact
        data_ingestion_artifact = data_ingestion.initiate_data_ingestion()
        
        # Data Validation
@@ -45,15 +49,15 @@ if __name__=="__main__":
 
        #Data Transformation
 
-       data_transformation_config = config_entity.DataTransformationConfig(training_pipeline_config=training_pipeline_config)
-       data_transformation = DataTransformation(data_transformation_config=data_transformation_config, 
-       data_ingestion_artifact=data_ingestion_artifact)
-       data_transformation_artifact = data_transformation.initiate_data_transformation()
+       #data_transformation_config = config_entity.DataTransformationConfig(training_pipeline_config=training_pipeline_config)
+       #data_transformation = DataTransformation(data_transformation_config=data_transformation_config, 
+       #data_ingestion_artifact=data_ingestion_artifact)
+       #data_transformation_artifact = data_transformation.initiate_data_transformation()
 
       #model trainer
-       model_trainer_config = config_entity.ModelTrainerConfig(training_pipeline_config=training_pipeline_config)
-       model_trainer = ModelTrainer(model_trainer_config=model_trainer_config, data_transformation_artifact=data_transformation_artifact)
-       model_trainer_artifact = model_trainer.initiate_model_trainer()
+       #model_trainer_config = config_entity.ModelTrainerConfig(training_pipeline_config=training_pipeline_config)
+       #model_trainer = ModelTrainer(model_trainer_config=model_trainer_config, data_transformation_artifact=data_transformation_artifact)
+       #model_trainer_artifact = model_trainer.initiate_model_trainer()
 
 
       

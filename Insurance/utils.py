@@ -7,8 +7,9 @@ import yaml
 import numpy as np
 import dill
 
-#################################### Data Ingestion ###############################
-#to read the data from database
+#################################### Data Ingestion ###############################6+
+
+#creating a dataframe to read the data from database, calling the data as a df format
 def get_collection_as_dataframe(database_name:str,collection_name:str)->pd.DataFrame:
     """
 
@@ -23,11 +24,14 @@ def get_collection_as_dataframe(database_name:str,collection_name:str)->pd.DataF
     """
     try:
         logging.info(f"Reading data from database: {database_name} and collection: {collection_name}")
+        #reading the data from database and returning it as a dataframe
         df = pd.DataFrame(list(mongo_client[database_name][collection_name].find()))
         logging.info(f"Found columns: {df.columns}")
+        #droping id column
         if "_id" in df.columns:
             logging.info(f"Dropping column: _id ")
             df = df.drop("_id",axis=1)
+        #printing row and columns
         logging.info(f"Row and columns in df: {df.shape}")
         return df
     except Exception as e:
@@ -43,6 +47,8 @@ def write_yaml_file(file_path,data:dict):
     except Exception as e:
         raise InsuranceException(e, sys)
 
+
+#converting the non object datatype of float
 def convert_columns_float(df:pd.DataFrame,exclude_columns:list)->pd.DataFrame:
     try:
         for column in df.columns:
@@ -55,6 +61,7 @@ def convert_columns_float(df:pd.DataFrame,exclude_columns:list)->pd.DataFrame:
 
 #*********************************** Data_Transformation*******************************************
 
+#to write in a yaml file
 def save_object(file_path: str, obj: object) -> None:
     try:
         logging.info("Entered the save_object method of utils")

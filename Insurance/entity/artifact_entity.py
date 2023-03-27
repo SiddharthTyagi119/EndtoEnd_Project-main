@@ -1,4 +1,4 @@
-#defining the path and required files with their datatypes for the project
+#defining the artifacts directories which we have created in config_entity
 
 from dataclasses import dataclass
 

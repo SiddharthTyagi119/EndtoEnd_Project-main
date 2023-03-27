@@ -1,4 +1,4 @@
-#creating artifacts to store the data/file fot the whole projects
+#this is just defining the path of our artifacts to store the data/file of the whole projects
 import os,sys
 from Insurance.exception import InsuranceException
 from Insurance.logger import logging
@@ -18,21 +18,25 @@ class TrainingPipelineConfig:
     
     def __init__(self):
         try:
-            #creating/defining artifact folder
+            #defining artifact, it will create an arifact folder to store the data folder
             self.artifact_dir = os.path.join(os.getcwd(),"artifact",f"{datetime.now().strftime('%m%d%Y__%H%M%S')}")
         except Exception  as e:
             raise InsuranceException(e,sys)    
 
 
-#creating some dir under artifact dir to store files.
+#creating some dir under artifact folder to store data files.
 class DataIngestionConfig:
     
     def __init__(self,training_pipeline_config:TrainingPipelineConfig):
         try:
             self.database_name="INSURANCE"
             self.collection_name="INSURANCE_PROJECT"
+
+            #merging data ingestion dir with training pipeline config
             self.data_ingestion_dir = os.path.join(training_pipeline_config.artifact_dir , "data_ingestion")
+            #feature store will contain raw data
             self.feature_store_file_path = os.path.join(self.data_ingestion_dir,"feature_store",FILE_NAME)
+            #dataset dir will contain train and test file of the data
             self.train_file_path = os.path.join(self.data_ingestion_dir,"dataset",TRAIN_FILE_NAME)
             self.test_file_path = os.path.join(self.data_ingestion_dir,"dataset",TEST_FILE_NAME)
             self.test_size = 0.2
@@ -40,7 +44,7 @@ class DataIngestionConfig:
             raise InsuranceException(e,sys)      
 
             
-# Convert data into dict just to read the data from terminal 
+# Convert data into dict just to read the data on terminal 
     def to_dict(self,)->dict:
         try:
             return self.__dict__
@@ -51,6 +55,8 @@ class DataIngestionConfig:
 class DataValidationConfig:
     
     def __init__(self,training_pipeline_config:TrainingPipelineConfig):
+
+        #creating data validation directory under artifact that will store a report.yaml file
         self.data_validation_dir = os.path.join(training_pipeline_config.artifact_dir , "data_validation")
         self.report_file_path=os.path.join(self.data_validation_dir, "report.yaml")
         self.missing_threshold:float = 0.2
