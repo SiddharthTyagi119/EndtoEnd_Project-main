@@ -26,3 +26,7 @@ Create data_validation file
 Phase 5
 Data Transformation
 Create Data Transformation file
+[config_entity>>artifact_entity>>utils.py>>data validation.py>>main.py]
+
+Phase 6
+Model trainer

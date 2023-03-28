@@ -38,6 +38,7 @@ def get_collection_as_dataframe(database_name:str,collection_name:str)->pd.DataF
         raise InsuranceException(e, sys)
 
 #***********************************## Data_Validation*******************************************
+#to write in a yaml file
 def write_yaml_file(file_path,data:dict):
     try:
         file_dir = os.path.dirname(file_path)
@@ -61,18 +62,20 @@ def convert_columns_float(df:pd.DataFrame,exclude_columns:list)->pd.DataFrame:
 
 #*********************************** Data_Transformation*******************************************
 
-#to write in a yaml file
+#function to save the data transformation in a file
 def save_object(file_path: str, obj: object) -> None:
     try:
         logging.info("Entered the save_object method of utils")
+        #file path
         os.makedirs(os.path.dirname(file_path), exist_ok=True)
+        #opening the file to dump the data
         with open(file_path, "wb") as file_obj:
             dill.dump(obj, file_obj)
         logging.info("Exited the save_object method of utils")
     except Exception as e:
         raise InsuranceException(e, sys) from e
 
-    
+#function to load our file which have our transformed data  
 def load_object(file_path: str, ) -> object:
     try:
         if not os.path.exists(file_path):
@@ -82,6 +85,7 @@ def load_object(file_path: str, ) -> object:
     except Exception as e:
         raise InsuranceException(e, sys) from e
 
+#function to convert data to numpy array
 def save_numpy_array_data(file_path: str, array: np.array):
     """
     Save numpy array data to file
@@ -93,7 +97,7 @@ def save_numpy_array_data(file_path: str, array: np.array):
         dir_path = os.path.dirname(file_path)
         os.makedirs(dir_path, exist_ok=True)
         with open(file_path, "wb") as file_obj:
-            np.save(file_obj, array)
+            np.save(file_obj, array)     #saving the converted data
     except Exception as e:
         raise InsuranceException(e, sys) from e
 
