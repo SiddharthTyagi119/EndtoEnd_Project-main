@@ -30,3 +30,4 @@ Create Data Transformation file
 
 Phase 6
 Model trainer
+[config_entity>>artifact_entity>>utils.py>>data validation.py>>main.py]

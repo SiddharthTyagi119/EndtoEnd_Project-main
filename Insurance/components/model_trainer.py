@@ -32,6 +32,7 @@ class ModelTrainer:
         except Exception as e:
             raise InsuranceException(e, sys)
 
+#defining model 
     def train_model(self,x,y):
         # try:
         #     xgb_r = xg.XGBRegressor()
@@ -51,6 +52,7 @@ class ModelTrainer:
 
     def initiate_model_trainer(self,)->artifact_entity.ModelTrainerArtifact:
         try:
+            #loading the transformed array data
             logging.info(f"Loading train and test array.")
             train_arr = utils.load_numpy_array_data(file_path=self.data_transformation_artifact.transformed_train_path)
             test_arr = utils.load_numpy_array_data(file_path=self.data_transformation_artifact.transformed_test_path)
@@ -63,15 +65,20 @@ class ModelTrainer:
             model = self.train_model(x=x_train,y=y_train)
 
             logging.info(f"Calculating f1 train score")
+
+            #calculating y pred and r2 score for train data
             yhat_train = model.predict(x_train)
             r2_train_score  =r2_score(y_true=y_train, y_pred=yhat_train)
 
             logging.info(f"Calculating f1 test score")
+
+            #calculating y pred and r2 score for test data
             yhat_test = model.predict(x_test)
             r2_test_score  =r2_score(y_true=y_test, y_pred=yhat_test)
             
             logging.info(f"train score:{r2_train_score} and tests score {r2_test_score}")
-            #check for overfitting or underfiiting or expected score
+            
+            #check for overfitting or underfiiting
             logging.info(f"Checking if our model is underfitting or not")
             if r2_test_score<self.model_trainer_config.expected_score:
                 raise Exception(f"Model is not good as it is not able to give \
