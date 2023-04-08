@@ -15,7 +15,7 @@ Create .env file,insurance  __init__ ,config file and main file
 Phase 3
 Data ingestion completed and artifact folder will be created
 Create artifact_entity ,config_entity and data_ingestion file
-[config_entity>>artifact_entity>>data_ingestion.py>>main.py]
+[config_entity>>artifact_entity>>utils.py>>data_ingestion.py>>main.py]
 
 Phase 4
 Data validation completed
@@ -33,5 +33,10 @@ Model trainer completed
 [config_entity>>artifact_entity>>utils.py>>data validation.py>>main.py]
 
 Phase 7 
+Model evaluation completed
 Create predictor file and evaluation file
 [predictor.py>>artifact_entity>>config_entity>>model_evaluation.py>>main.py]
+
+Phase 7
+Model pusher
+[config_entity>>artifact_entity>>model_pusher.py>>main.py]

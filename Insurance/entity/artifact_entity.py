@@ -27,8 +27,8 @@ class ModelTrainerArtifact:
 
 @dataclass
 class ModelEvaluationArtifact:
-    is_model_accepted:bool
-    improved_accuracy:float
+    is_model_accepted:bool     #to check model acceptance
+    improved_accuracy:float    #to check the new accuracy
 
 @dataclass
 class ModelPusherArtifact:

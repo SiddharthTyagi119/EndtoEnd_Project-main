@@ -1,0 +1,8 @@
+Ingest the data from source and after data ingestion our data will be in train and test.
+validate the train and test data with the main data file.
+transform both train and test data and build the model.
+After deploying the first model
+next model (pipeline on new dataset) . new model will be save in saved dir
+we will compare the new model and the base model to choose the best model to deploy further.
+whichever model will give best accuracy on our main data will deploy that.
+

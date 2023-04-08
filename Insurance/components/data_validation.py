@@ -33,13 +33,15 @@ class DataValidation:
             
             #taking threshold
             threshold = self.data_validation_config.missing_threshold
-            #define null values
+            
+            #checking null values
             null_report = df.isna().sum()/df.shape[0]
 
             #selecting column name which contains null above threshold
             logging.info(f"selecting column name which contains null above to {threshold}")
             drop_column_names = null_report[null_report>threshold].index
 
+            #creating report key name
             logging.info(f"Columns to drop: {list(drop_column_names)}")
             self.validation_error[report_key_name]=list(drop_column_names)
 
@@ -54,8 +56,9 @@ class DataValidation:
             raise InsuranceException(e, sys)
 
 
-#to check the required columns
+#checking if the columns are equal in both man file data and train,test
 #original data is our base column and base data
+#base df- main csv file and current df- data that generated in data ingestion
     def is_required_columns_exists(self,base_df:pd.DataFrame,current_df:pd.DataFrame,report_key_name:str)->bool:
         try:
            
@@ -73,6 +76,7 @@ class DataValidation:
             
             #checking the length of missing columns
             if len(missing_columns)>0:
+                #it generate a file >> report.yaml to have valdation data report
                 self.validation_error[report_key_name]=missing_columns
                 return False
             return True
@@ -85,17 +89,17 @@ class DataValidation:
         try:
             drift_report=dict()
 
-            base_columns = base_df.columns
-            #created columns
+            base_columns = base_df.columns 
             current_columns = current_df.columns
 
-            #checking the distribution of both the data
+            
             for base_column in base_columns:
                 base_data,current_data = base_df[base_column],current_df[base_column]
                 
+                #checking the hypothesis
                 same_distribution =ks_2samp(base_data,current_data)
 
-                #if the distribution p value is greater than distribution would be true
+                #if the distribution p value is greater than 0.05  then null hypothesis would true
                 if same_distribution.pvalue>0.05:
                     #We are accepting null hypothesis
                     drift_report[base_column]={
@@ -107,6 +111,7 @@ class DataValidation:
                         "pvalues":float(same_distribution.pvalue),
                         "same_distribution":False
                     }
+                    
                     #different distribution
             
             #it helps to store the report in yaml file
@@ -163,7 +168,7 @@ class DataValidation:
                 self.data_drift(base_df=base_df, current_df=test_df,report_key_name="data_drift_within_test_dataset")
           
             #write the report
-            logging.info("Write reprt in yaml file")
+            logging.info("Write report in yaml file")
             utils.write_yaml_file(file_path=self.data_validation_config.report_file_path,
             data=self.validation_error)
 
