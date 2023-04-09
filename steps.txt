@@ -40,3 +40,7 @@ Create predictor file and evaluation file
 Phase 7
 Model pusher
 [config_entity>>artifact_entity>>model_pusher.py>>main.py]
+
+Phase 8
+Batch prediciton
+[batch_prediciton.py>>demo.py>>training_pipeline.py>>demo.py>>app.py]
