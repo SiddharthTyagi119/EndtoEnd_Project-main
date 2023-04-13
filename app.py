@@ -48,9 +48,11 @@ l['bmi'] = bmi
 l['children'] = children
 l['smoker'] = smoker
 l['region'] = region
+#print(l.columns())
+
 
 type(l)
-df = pd.DataFrame(l, index=[0])
+df = pd.DataFrame(l, index=[1])
 type(df)
 
 df['region'] = encoder.transform(df['region'])
