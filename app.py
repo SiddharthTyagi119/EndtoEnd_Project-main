@@ -49,8 +49,9 @@ l['children'] = children
 l['smoker'] = smoker
 l['region'] = region
 
+type(l)
 df = pd.DataFrame(l, index=[0])
-
+type(df)
 
 df['region'] = encoder.transform(df['region'])
 df['sex'] = df['sex'].map({'male':1, 'female':0})

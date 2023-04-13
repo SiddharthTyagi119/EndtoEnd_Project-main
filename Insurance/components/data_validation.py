@@ -56,7 +56,7 @@ class DataValidation:
             raise InsuranceException(e, sys)
 
 
-#checking if the columns are equal in both man file data and train,test
+#checking if the columns are equal in both main file data and train,test
 #original data is our base column and base data
 #base df- main csv file and current df- data that generated in data ingestion
     def is_required_columns_exists(self,base_df:pd.DataFrame,current_df:pd.DataFrame,report_key_name:str)->bool:

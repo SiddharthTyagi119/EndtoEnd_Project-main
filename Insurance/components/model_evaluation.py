@@ -1,6 +1,6 @@
-#we lready have one model trained now if we run the model next time on data then a new model will saved
+#we already have one model trained now if we run the model next time on data then a new model will saved
 #in new dir. we will evaluate the new model with the old model.we will comare the accuracy of both the model
-#if the accuracy of new model is inc then it will saved and will deloy that modelelse we will go with
+#if the accuracy of new model is inc compare to last one then it will saved and will deloy that model else we will go with
 #the base model.
 #the new model will not saved if the new model acc is ower than the old model.
 from Insurance.predictor import ModelResolver
