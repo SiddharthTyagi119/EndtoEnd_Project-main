@@ -3,6 +3,8 @@ from Insurance.predictor import ModelResolver
 from Insurance.entity.config_entity import ModelPusherConfig
 from Insurance.exception import InsuranceException
 import os,sys
+from Insurance.logger import logging
+from Insurance.exception import InsuranceException
 from Insurance.utils import load_object,save_object
 from Insurance.logger import logging
 from Insurance.entity.artifact_entity import DataTransformationArtifact,ModelTrainerArtifact,ModelPusherArtifact
@@ -23,7 +25,7 @@ class ModelPusher:
 
     def initiate_model_pusher(self,)->ModelPusherArtifact:
         try:
-            #load object
+            #loading the model after comparison 
             logging.info(f"Loading transformer model and target encoder")
             transformer = load_object(file_path=self.data_transformation_artifact.transform_object_path)
             model = load_object(file_path=self.model_trainer_artifact.model_path)

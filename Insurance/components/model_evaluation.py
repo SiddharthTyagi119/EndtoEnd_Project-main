@@ -11,6 +11,8 @@ from Insurance.utils import load_object
 from sklearn.metrics import r2_score
 import pandas  as pd
 import sys,os
+from Insurance.logger import logging
+from Insurance.exception import InsuranceException
 from Insurance.config import TARGET_COLUMN
 
 class ModelEvaluation:

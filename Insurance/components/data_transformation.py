@@ -7,6 +7,8 @@ from sklearn.pipeline import Pipeline
 import pandas as pd
 from Insurance import utils
 import numpy as np
+from Insurance.logger import logging
+from Insurance.exception import InsuranceException
 from sklearn.preprocessing import LabelEncoder
 #from imblearn.combine import SMOTETomek
 from sklearn.impute import SimpleImputer

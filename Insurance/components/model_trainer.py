@@ -3,6 +3,8 @@ from Insurance.exception import InsuranceException
 from Insurance.logger import logging
 from typing import Optional
 import os,sys 
+from Insurance.logger import logging
+from Insurance.exception import InsuranceException
 import xgboost as xg
 from sklearn.linear_model import LinearRegression
 from Insurance import utils

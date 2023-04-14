@@ -7,6 +7,8 @@ import os,sys
 import pandas as pd
 from Insurance import utils
 import numpy as np
+from Insurance.logger import logging
+from Insurance.exception import InsuranceException
 from Insurance.config import TARGET_COLUMN
 
 #defining the constructor  
