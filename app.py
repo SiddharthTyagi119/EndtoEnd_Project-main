@@ -48,12 +48,8 @@ l['bmi'] = bmi
 l['children'] = children
 l['smoker'] = smoker
 l['region'] = region
-#print(l.columns())
 
-
-type(l)
-df = pd.DataFrame(l, index=[1])
-type(df)
+df = pd.DataFrame(l, index=[0])
 
 df['region'] = encoder.transform(df['region'])
 df['sex'] = df['sex'].map({'male':1, 'female':0})
