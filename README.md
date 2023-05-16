@@ -3,4 +3,3 @@ The purpose of this data is to look into the different features to observe their
 
 Project Pipeline
 
-![training_pipeline](https://github.com/SiddharthTyagi119/EndtoEnd_Project-main/assets/52122171/b9f736aa-279d-47f0-a45f-ccd05dae5f54)
