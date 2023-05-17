@@ -10,8 +10,11 @@ docker push insurancepremium.azurecr.io/insurance1
 
 # Deployment Steps to deploy on azure ci/cd pipeline:
 Build the Docker image of the Source Code
+
 Push the Docker image to Container Registry
+
 Launch the Web App Server in Azure
+
 Pull the Docker image from the container registry to Web App server and run
 
 # Project Pipeline
