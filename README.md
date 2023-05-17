@@ -1,11 +1,18 @@
 Problem Statement
 The purpose of this data is to look into the different features to observe their relationship. Features such as age,location,family condition against their existing medical expense to be used for predicting future medical expense of individuals that help medical insurance to make decision on charging the premium.This can assist a person in concentrating on the health side of an insurance policy rather han the ineffective part.
 
-# To Deploy this app
-1-Docker Build checked
-2-Github Workflow
-3-Iam User In AWS 
+# Run from terminal:
+docker login insurancepremium.azurecr.io
 
+docker build -t insurancepremium.azurecr.io/insurance1 .
+
+docker push insurancepremium.azurecr.io/insurance1
+
+# Deployment Steps:
+Build the Docker image of the Source Code
+Push the Docker image to Container Registry
+Launch the Web App Server in Azure
+Pull the Docker image from the container registry to Web App server and run
 
 Project Pipeline
 

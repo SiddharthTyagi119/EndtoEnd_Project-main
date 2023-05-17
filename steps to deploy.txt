@@ -1,0 +1,23 @@
+Steps to perform-----
+
+1-create  docker file
+
+2-create a azure registry and enable access keys for admin and copy the credentials
+registry name- insurancepremium
+password of registry-4jplEejoTKfvMVQ6T9x0AHcokESuf2NCJeFg96+Iwa+ACRCZugoZ
+login server of registry-insurancepremium.azurecr.io
+username/registry name-insurancepremium
+
+
+3-login in azure registry with the name like
+docker login insurancepremium.azurecr.io
+
+4-build docker image with azure registry name 
+docker build -t insurancepremium.azurecr.io/insurance1
+
+5-push the docker image to registry
+docker push insurancetestpremium.azurecr.io/insurance1
+
+6- Create web app and go to resourcr >>under development center do the needful like choose github actions under source and other things.
+
+7- After successfully completed build and deploy,  run the default domain url in browser to run the app.
