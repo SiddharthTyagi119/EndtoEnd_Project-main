@@ -1,6 +1,9 @@
 Problem Statement
 The purpose of this data is to look into the different features to observe their relationship. Features such as age,location,family condition against their existing medical expense to be used for predicting future medical expense of individuals that help medical insurance to make decision on charging the premium.This can assist a person in concentrating on the health side of an insurance policy rather han the ineffective part.
 
+# Prediction Endpoint
+After the prediction of Insurance premium prediction, With the use of gitHub actions I have configured CI-CD on the main branch. If any changes happens in Main branch it will deploy it on azure web app.
+
 # Run from terminal:
 docker login insurancepremium.azurecr.io
 
@@ -26,3 +29,11 @@ Pull the Docker image from the container registry to Web App server and run
 
 # Flowchart to deploy python application on azure web app
 ![Capture9](https://github.com/SiddharthTyagi119/EndtoEnd_Project-main/assets/52122171/69b128b9-9d18-46b2-961a-b83f3728f1b5)
+
+
+# Services Used 
+Azure container Registry (ACR) for Docker image of project is stored
+
+Azure App Services for deploying the application
+
+GitHub Actions for CI/CD
