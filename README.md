@@ -21,5 +21,7 @@ Pull the Docker image from the container registry to Web App server and run
 
 ![training_pipeline](https://github.com/SiddharthTyagi119/EndtoEnd_Project-main/assets/52122171/f01d8373-b7fd-41b5-9cb4-f0967a2ad1e2)
 
-# Flowchart of deployment of application on azure web app
+# Flowchart of deployment of container application on azure web app
 ![azure](https://github.com/SiddharthTyagi119/EndtoEnd_Project-main/assets/52122171/05ac9fd7-f75e-4b3e-962a-1666e14d9b66)
+
+# Flowchart to deploy python application on azure web app
