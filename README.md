@@ -30,6 +30,9 @@ Pull the Docker image from the container registry to Web App server and run
 # Flowchart to deploy python application on azure web app
 ![Capture9](https://github.com/SiddharthTyagi119/EndtoEnd_Project-main/assets/52122171/69b128b9-9d18-46b2-961a-b83f3728f1b5)
 
+# UI
+![UI](https://github.com/SiddharthTyagi119/EndtoEnd_Project-main/assets/52122171/5041d852-322c-4b12-b92e-4f3d61fe6633)
+
 
 # Services Used 
 Azure container Registry (ACR) for Docker image of project is stored
