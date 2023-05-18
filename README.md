@@ -37,6 +37,6 @@ Pull the Docker image from the container registry to Web App server and run
 # Services Used 
 Azure container Registry (ACR) for Docker image of project is stored
 
-Azure App Services for deploying the application
+Azure Web App Services for deploying the application
 
 GitHub Actions for CI/CD
